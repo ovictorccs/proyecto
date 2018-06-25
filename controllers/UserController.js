@@ -24,12 +24,13 @@ module.exports = {
      if(err) throw err;
 
      db.end();
- });       
+ });
+ req.flash(('info', 'Se ha registrado correctamente, ya puede iniciar Sesion'))       
         return res.redirect('/auth/signin');
     },
 
 getSignIn: function(req, res, next){
-    return res.render('users/signin');
+    return res.render('users/signin', {message: req.flash('info')});
 }
 
 };
