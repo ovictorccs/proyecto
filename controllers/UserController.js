@@ -25,7 +25,7 @@ module.exports = {
 
      db.end();
  });       
-        return;
+        return res.redirect('/auth/signin');
     },
 
 getSignIn: function(req, res, next){
