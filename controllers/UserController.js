@@ -25,7 +25,7 @@ module.exports = {
 
      db.end();
  });
- req.flash(('info', 'Se ha registrado correctamente, ya puede iniciar Sesion'))       
+ req.flash('info', 'Se ha registrado correctamente, ya puede iniciar Sesion')       
         return res.redirect('/auth/signin');
     },
 
