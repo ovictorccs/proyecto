@@ -30,7 +30,7 @@ module.exports = {
     },
 
 getSignIn: function(req, res, next){
-    return res.render('users/signin', {message: req.flash('info')});
+    return res.render('users/signin', { message: req.flash('info'),  authmessage : req.flash('authmessage')});
 },
 
     logout: function (req, res, next) {
