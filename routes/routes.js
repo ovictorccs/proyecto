@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var passport = require('passport');
 var controllers = require('.././controllers');
 
 router.get('/', controllers.HomeController.index);
@@ -8,5 +9,11 @@ router.get('/', controllers.HomeController.index);
 router.get('/auth/signup', controllers.UserController.getSignUp); 
 router.post('/auth/signup', controllers.UserController.postSignUp); 
 router.get('/auth/signin', controllers.UserController.getSignIn);
-
+router.post('/auth/signin', passport.authenticate('local', {
+    successRedirect: '/users/panel',
+    failureRedirect: '/auth/signin',
+    failureFlash: true
+}));
+router.get('/auth/logout', controllers.UserController.logout);
+router.get('/users/panel', controllers.UserController.getUserPanel);
 module.exports = router;
