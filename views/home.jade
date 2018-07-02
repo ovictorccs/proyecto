@@ -2,3 +2,5 @@ extends templates/default
 
 block content
   h1= 'Bienvenidos'
+  if isAuthenticated
+    p= 'Bienvenido' + user.nombre
